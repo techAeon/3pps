@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ seoTitle if seoTitle else title }} — 3PPS.info</title>
+  <meta name="description" content="{{ description }}">
+  {% if schema %}<script type="application/ld+json">{{ schema | safe }}</script>{% endif %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  {% if extraCss %}<style>{{ extraCss }}</style>{% endif %}
+</head>
+<body>
+
+  <div class="layout">
+
+    <!-- ── SIDEBAR ─────────────────────────────────────────── -->
+    <aside class="sidebar" id="sidebar">
+
+      <!-- 1. Brand -->
+      <div class="sb-brand">
+        <a href="/" class="sb-logo">3<span>PPS</span>.info</a>
+        <button class="sb-close" id="sbClose" aria-label="Close menu">✕</button>
+      </div>
+
+      <!-- 2. Search -->
+      <div class="sb-search-wrap">
+        <div class="sb-search">
+          <span class="sb-search-icon">⌕</span>
+          <input type="text" id="siteSearch" placeholder="Search…" autocomplete="off" aria-label="Search site">
+        </div>
+        <div class="sb-search-dropdown" id="searchDropdown" hidden></div>
+      </div>
+
+      <!-- 3. Navigation -->
+      <nav class="sb-nav">
+
+        <ul class="sb-nav-list">
+          <li><a href="/" class="{% if navActive == 'home' %}active{% endif %}">Overview</a></li>
+        </ul>
+
+        <div class="sb-section-label">Guides</div>
+        <ul class="sb-nav-list">
+          <li>
+            <a href="/101" class="{% if navActive == '101' %}active{% endif %}">3PPS 101: The Workflow</a>
+            {% if navActive == '101' %}<ul class="sb-subnav">
+              <li><a href="#what-is">What is a Preissuance Submission?</a></li>
+              <li><a href="#not-opposition">What It Is Not</a></li>
+              <li><a href="#process-flow">The Process Flow</a></li>
+              <li><a href="#required-docs">Required Documents</a></li>
+              <li><a href="#fees">Fees &amp; Exemptions</a></li>
+              <li><a href="#after-filing">After Filing</a></li>
+            </ul>{% endif %}
+          </li>
+          <li>
+            <a href="/drafting" class="{% if navActive == 'drafting' %}active{% endif %}">Drafting Guide</a>
+            {% if navActive == 'drafting' %}<ul class="sb-subnav">
+              <li><a href="#the-requirement">The Requirement</a></li>
+              <li><a href="#factual-vs-argumentative">Factual vs. Argumentative</a></li>
+              <li><a href="#examples">Compliant Examples</a></li>
+              <li><a href="#mapping-technique">The Mapping Technique</a></li>
+              <li><a href="#common-mistakes">Common Mistakes</a></li>
+              <li><a href="#template">Description Template</a></li>
+            </ul>{% endif %}
+          </li>
+          <li>
+            <a href="/strategy" class="{% if navActive == 'strategy' %}active{% endif %}">Strategic Risks</a>
+            {% if navActive == 'strategy' %}<ul class="sb-subnav">
+              <li><a href="#double-edged">The Double-Edged Sword</a></li>
+              <li><a href="#3pps-vs-ipr">3PPS vs. IPR</a></li>
+              <li><a href="#estoppel">The Estoppel Question</a></li>
+              <li><a href="#decision-framework">Decision Framework</a></li>
+            </ul>{% endif %}
+          </li>
+          <li>
+            <a href="/international" class="{% if navActive == 'international' %}active{% endif %}">International Comparison</a>
+            {% if navActive == 'international' %}<ul class="sb-subnav">
+              <li><a href="#comparison-table">Comparison Table</a></li>
+              <li><a href="#us-system">US 3PPS</a></li>
+              <li><a href="#epo-system">EPO Observations</a></li>
+              <li><a href="#pct-system">PCT / WIPO</a></li>
+              <li><a href="#key-difference">Why the Difference?</a></li>
+            </ul>{% endif %}
+          </li>
+        </ul>
+
+        <div class="sb-section-label">Tools</div>
+        <ul class="sb-nav-list">
+          <li>
+            <a href="/calculator" class="{% if navActive == 'calculator' %}active{% endif %}">Deadline Calculator</a>
+            {% if navActive == 'calculator' %}<ul class="sb-subnav">
+              <li><a href="#the-rule">The Statutory Rule</a></li>
+              <li><a href="#calculator">The Calculator</a></li>
+              <li><a href="#how-to-find">How to Find Dates</a></li>
+              <li><a href="#edge-cases">Edge Cases</a></li>
+            </ul>{% endif %}
+          </li>
+          <li>
+            <a href="/checklist" class="{% if navActive == 'checklist' %}active{% endif %}">Filing Checklist</a>
+            {% if navActive == 'checklist' %}<ul class="sb-subnav">
+              <li><a href="#timing">1. Identification &amp; Timing</a></li>
+              <li><a href="#documents">2. Document Preparation</a></li>
+              <li><a href="#fees">3. Fees &amp; Exemptions</a></li>
+              <li><a href="#submission">4. Patent Center Submission</a></li>
+              <li><a href="#post-filing">5. After Filing</a></li>
+            </ul>{% endif %}
+          </li>
+        </ul>
+
+        <div class="sb-section-label">Reference</div>
+        <ul class="sb-nav-list">
+          <li>
+            <a href="/glossary" class="{% if navActive == 'glossary' %}active{% endif %}">Glossary</a>
+            {% if navActive == 'glossary' %}<ul class="sb-subnav">
+              <li><a href="#term-aia">America Invents Act</a></li>
+              <li><a href="#term-claim">Claim</a></li>
+              <li><a href="#term-concise-desc">Concise Description</a></li>
+              <li><a href="#term-noa">Notice of Allowance</a></li>
+              <li><a href="#term-office-action">Office Action</a></li>
+              <li><a href="#term-prior-art">Prior Art</a></li>
+              <li><a href="#term-3pps">3PPS</a></li>
+            </ul>{% endif %}
+          </li>
+          <li><a href="/faq" class="{% if navActive == 'faq' %}active{% endif %}">FAQ</a></li>
+          <li><a href="https://www.uspto.gov" target="_blank" rel="noopener" class="sb-external">USPTO Official ↗</a></li>
+        </ul>
+
+        {% if pageRelated %}
+        <div class="sb-section-label">Related</div>
+        {{ pageRelated | safe }}
+        {% endif %}
+
+      </nav>
+
+      <!-- 4. Conversion — pinned to bottom -->
+      <div class="sb-footer">
+        <a href="/checklist" class="sb-cta">↓ Download Free Checklist</a>
+        <div class="sb-footer-links">
+          <a href="https://www.uspto.gov" target="_blank" rel="noopener">USPTO ↗</a>
+          <button class="sb-dark-btn" id="darkModeBtn" aria-label="Toggle dark mode">◑ Dark mode</button>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ── MAIN CONTENT ──────────────────────────────────────── -->
+    <div class="layout-main">
+
+      <!-- Mobile top bar — just logo + hamburger, no wasted space -->
+      <div class="mobile-bar">
+        <a href="/" class="sb-logo">3<span>PPS</span>.info</a>
+        <button class="mobile-open-btn" id="mobileOpenBtn" aria-label="Open menu">☰ Menu</button>
+      </div>
+      <div class="mobile-overlay" id="mobileOverlay"></div>
+
+      <main class="main-content">
+        {{ content | safe }}
+      </main>
+
+      <footer class="site-footer-wrap">
+        <div class="site-footer">
+          <div class="footer-brand">
+            <div class="logo">3PPS.info</div>
+            <p>Demystifying the America Invents Act (AIA) crowdsourcing mechanisms for independent inventors and the technology community.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="/101">3PPS Guide</a></li>
+              <li><a href="/checklist">Filing Checklist</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a href="/glossary">Glossary</a></li>
+              <li><a href="https://www.uspto.gov" target="_blank" rel="noopener">USPTO Official ↗</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <p class="footer-disclaimer">This website is an educational project and is not affiliated with the USPTO. Use of this site does not constitute an attorney-client relationship. This site provides information, not legal advice.</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2025 3PPS.info. All rights reserved.</span>
+          <span>Built to demystify 35 U.S.C. § 122(e)</span>
+        </div>
+      </footer>
+
+    </div><!-- /layout-main -->
+
+  </div><!-- /layout -->
+
+  <script src="/js/app.js"></script>
+  <script src="/js/header.js"></script>
+  <script>
+    // Mobile sidebar open/close
+    const openBtn = document.getElementById('mobileOpenBtn');
+    const closeBtn = document.getElementById('sbClose');
+    const overlay = document.getElementById('mobileOverlay');
+    const sidebar = document.getElementById('sidebar');
+    function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('visible'); document.body.style.overflow='hidden'; }
+    function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('visible'); document.body.style.overflow=''; }
+    if (openBtn) openBtn.addEventListener('click', openSidebar);
+    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+    if (overlay) overlay.addEventListener('click', closeSidebar);
+  </script>
+  {% if pageScript %}<script>{{ pageScript | safe }}</script>{% endif %}
+
+</body>
+</html>
