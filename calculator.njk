@@ -1,0 +1,136 @@
+---
+layout: base.njk
+title: Statutory Deadline Calculator
+description: Calculate your 3PPS filing deadline. The window for Third-Party Preissuance Submissions is brittle — use this tool to determine eligibility before it closes.
+navActive: "calculator"
+seoTitle: "USPTO 3PPS Deadline Calculator — Is the Filing Window Still Open?"
+pageRelated: "<ul class=\"sidebar-nav\"><li><a href=\"/101\">3PPS 101 Guide</a></li><li><a href=\"/checklist\">Filing Checklist</a></li><li><a href=\"/glossary#term-noa\">What is a Notice of Allowance?</a></li></ul>"
+schema: |
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "USPTO 3PPS Deadline Calculator",
+    "description": "Calculate whether the filing window for a Third-Party Preissuance Submission is still open under 35 U.S.C. § 122(e).",
+    "url": "https://3pps.info/calculator",
+    "applicationCategory": "LegalApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+permalink: /calculator/index.html
+---
+
+<main class="main-content">
+    <div class="page-header">
+      <div class="breadcrumb">3PPS.info / deadline-calculator</div>
+      <h1>Statutory Deadline Calculator</h1>
+      <p class="page-subtitle">The filing window for 3PPS is "brittle." Use this tool to determine whether the window is still open.</p>
+    </div>
+
+    <div class="callout tldr"><span class="callout-label">TL;DR</span><p>Your deadline is the earlier of: (a) a Notice of Allowance, or (b) the later of 6 months post-publication or the first Office Action date. Enter your dates below to check instantly.</p></div>
+
+    <section id="the-rule">
+      <h2>The Statutory Rule</h2>
+      <p>Under <strong>35 U.S.C. § 122(e)</strong>, a Third-Party Preissuance Submission must be filed before the <em>earlier</em> of:</p>
+      <ol>
+        <li>The date a <strong>Notice of Allowance (NOA)</strong> is issued; <em>or</em></li>
+        <li>The <em>later</em> of:
+          <ul>
+            <li><strong>6 months</strong> after the application is published; <em>or</em></li>
+            <li>The date of the <strong>first rejection</strong> of any claim</li>
+          </ul>
+        </li>
+      </ol>
+      <div class="callout warning">
+        <span class="callout-label">The "Brittle" Window Explained</span>
+        <p>The Notice of Allowance is a hard stop — it can arrive at <em>any time</em> with no warning. If an NOA is issued, the window closes <strong>immediately</strong>. This is why practitioners call the window "brittle." Do not wait.</p>
+      </div>
+      <div style="margin: 1.5rem 0; padding: 1.25rem; background: var(--bg-warm); border: 1px solid var(--rule); border-radius: 2px;">
+        <h4 style="margin-top:0; font-size:0.8rem;">Visualizing the Window</h4>
+        <div class="timeline-viz" style="margin-bottom:0;">
+          <div class="tl-node start">
+            <div class="tl-dot"></div>
+            <div class="tl-label"><strong>Publication</strong><br>Clock starts</div>
+          </div>
+          <div class="tl-line"></div>
+          <div class="tl-node mid">
+            <div class="tl-dot"></div>
+            <div class="tl-label"><strong>6 Months</strong><br>Base deadline</div>
+          </div>
+          <div class="tl-line"></div>
+          <div class="tl-node mid">
+            <div class="tl-dot" style="background: var(--warn);"></div>
+            <div class="tl-label"><strong>1st Rejection</strong><br>Extends if later</div>
+          </div>
+          <div class="tl-line"></div>
+          <div class="tl-node stop">
+            <div class="tl-dot"></div>
+            <div class="tl-label"><strong style="color:var(--fail);">NOA = STOP</strong><br>Closes immediately</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculator">
+      <h2>The Calculator</h2>
+      <div class="calc-widget">
+        <div class="calc-header">§ 122(e) Deadline Calculator</div>
+        <div class="calc-body">
+          <div class="checkbox-row">
+            <input type="checkbox" id="noaIssued">
+            <label for="noaIssued"><strong>Has a Notice of Allowance (NOA) been issued?</strong> — If yes, the window is closed.</label>
+          </div>
+          <div id="calcForm">
+            <div class="form-row">
+              <label for="pubDate">Publication Date <span style="color:var(--fail);font-size:0.8rem;">Required</span></label>
+              <input type="date" id="pubDate">
+              <div class="help-text">Found on the front page of the published application (e.g., US 2024/0123456).</div>
+            </div>
+            <div class="form-row">
+              <label for="rejDate">First Office Action Date <span class="opt">(Optional)</span></label>
+              <input type="date" id="rejDate">
+              <div class="help-text">The mailing date on the first Office Action on the merits. Leave blank if none has issued.</div>
+            </div>
+            <button class="calc-btn" onclick="calculateDeadline()">Check Eligibility</button>
+          </div>
+          <div id="calc-result">
+            <div id="result-header" class="result-header"></div>
+            <div class="result-body">
+              <table><tbody id="result-rows"></tbody></table>
+              <div id="result-note" style="margin-top:0.75rem; font-size:0.8rem; color:var(--ink-faint); line-height:1.5;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="callout note" style="margin-top: 1rem;">
+        <span class="callout-label">Disclaimer</span>
+        <p>This calculator provides an estimate. Always verify deadlines independently and consult a qualified patent practitioner for time-sensitive filings.</p>
+      </div>
+    </section>
+
+    <section id="how-to-find">
+      <h2>How to Find the Relevant Dates</h2>
+      <h3>Publication Date</h3>
+      <p>Appears on the face of the published patent application. Also searchable in Google Patents and USPTO Patent Center by application number.</p>
+      <h3>First Office Action Date</h3>
+      <p>In <a href="https://ppair-my.uspto.gov" target="_blank" rel="noopener">USPTO Patent Center ↗</a>, under "Image File Wrapper," look for the first document labeled "Non-Final Rejection." The mailing date is printed on its cover.</p>
+      <h3>Notice of Allowance</h3>
+      <p>Also in the Image File Wrapper. If the most recent action is an NOA, the window is closed.</p>
+    </section>
+
+    <section id="edge-cases">
+      <h2>Edge Cases & Nuances</h2>
+      <table class="ref-table">
+        <thead>
+          <tr><th>Situation</th><th>Effect on Window</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Published, no OA yet, within 6 months</td><td class="highlight">Window open. Deadline = pub date + 6 months.</td></tr>
+          <tr><td>First OA issued more than 6 months after publication</td><td class="highlight">Window extended. Deadline = date of first OA.</td></tr>
+          <tr><td>First OA issued within 6 months of publication</td><td>No extension. Deadline remains pub + 6 months.</td></tr>
+          <tr><td>NOA issued at any point</td><td class="brittle">Window immediately closed.</td></tr>
+          <tr><td>Application abandoned</td><td class="brittle">Cannot file.</td></tr>
+          <tr><td>Continuation or divisional application</td><td>Each application has its own independent window.</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>

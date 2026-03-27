@@ -1,0 +1,109 @@
+---
+layout: base.njk
+title: 3PPS Filing Checklist
+description: A step-by-step interactive checklist to ensure your Third-Party Preissuance Submission is accepted by the USPTO.
+navActive: "checklist"
+seoTitle: "USPTO Prior Art Submission Checklist — 3PPS Filing Requirements"
+pageRelated: "<ul class=\"sidebar-nav\"><li><a href=\"/calculator\">Deadline Calculator</a></li><li><a href=\"/drafting\">Drafting Guide</a></li><li><a href=\"/101\">3PPS 101</a></li></ul>"
+schema: |
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to File a USPTO Third-Party Preissuance Submission",
+    "description": "Step-by-step checklist for filing a compliant 3PPS with the USPTO under 37 CFR 1.290.",
+    "url": "https://3pps.info/checklist",
+    "step": [
+      {"@type": "HowToStep", "name": "Identification & Timing", "text": "Confirm the application is pending, no NOA has issued, and you are within the statutory window."},
+      {"@type": "HowToStep", "name": "Document Preparation", "text": "Prepare PDF copies of prior art and draft factual Concise Descriptions of Relevance."},
+      {"@type": "HowToStep", "name": "Fees & Exemptions", "text": "Determine whether the first-time filer fee exemption applies (free for up to 3 items)."},
+      {"@type": "HowToStep", "name": "Submit via USPTO Patent Center", "text": "Upload Form PTO/SB/429, descriptions, and references via Patent Center."},
+      {"@type": "HowToStep", "name": "After Filing", "text": "Save your receipt and monitor the file wrapper for entry confirmation."}
+    ]
+  }
+permalink: /checklist/index.html
+extraCss: |
+  .progress-bar-wrap { background: var(--rule-light); border-radius: 2px; height: 6px; margin: 1rem 0 0.5rem; }
+  .progress-bar-fill { height: 6px; background: var(--accent); border-radius: 2px; transition: width 0.3s; }
+  .progress-text { font-size: 0.775rem; color: var(--ink-faint); margin-bottom: 1.5rem; font-family: var(--mono); }
+---
+
+<main class="main-content">
+    <div class="page-header">
+      <div class="breadcrumb">3PPS.info / filing-checklist</div>
+      <h1>Filing Checklist</h1>
+      <p class="page-subtitle">Check off each item before you file. Progress is saved during this browser session.</p>
+    </div>
+
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+    </div>
+    <div class="progress-text" id="progressText">0 of 22 items checked</div>
+
+    <div class="callout tldr"><span class="callout-label">TL;DR</span><p>22 items across 5 stages: confirm the window is open, prepare factual descriptions, determine your fee (possibly $0), submit via USPTO Patent Center, then monitor the file wrapper. Check each item before you file.</p></div>
+
+    <section id="timing">
+      <div class="checklist-section">
+        <div class="checklist-section-header"><span>📋</span> 1. Identification & Timing</div>
+        <div class="checklist-items">
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Identify the US Patent Application Publication Number (e.g., US 2024/0000001) or application number.</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Confirm the application is still pending — not abandoned or issued as a patent.</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Verify NO Notice of Allowance has been issued. Check the file wrapper in Patent Center.</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Use the <a href="/calculator">Deadline Calculator</a> to verify you are within the statutory window.</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Confirm you are not the Applicant and have no obligation to assign rights to the Applicant.</label></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="documents">
+      <div class="checklist-section">
+        <div class="checklist-section-header"><span>📎</span> 2. Document Preparation</div>
+        <div class="checklist-items">
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Select no more than 10 documents per submission to minimize fees.</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Prepare PDF copies of all non-patent literature. Full copies required.</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Identify all US Patents and US Patent Applications by number. PDFs generally not required.</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Obtain English translations for any foreign-language documents.</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Draft a "Concise Description of Relevance" for each document. Review the <a href="/drafting">Drafting Guide</a>. Factual only — no legal arguments.</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Verify each description cites specific page, column, line, paragraph, or figure numbers.</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Read each description aloud. Remove any words like: "anticipates," "obvious," "invalid," "not novel," "should be rejected," or statute citations (§ 102, § 103).</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Complete Form PTO/SB/429 (cover sheet). Available on the <a href="https://www.uspto.gov/patent/forms/forms-patent-applications-filed-or-after-september-16-2012" target="_blank" rel="noopener">USPTO forms page ↗</a>.</label></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fees">
+      <div class="checklist-section">
+        <div class="checklist-section-header"><span>💲</span> 3. Fees & Exemptions</div>
+        <div class="checklist-items">
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Determine if you qualify for the first-time filer exemption: first submission for this application AND 3 or fewer documents. If yes, fee is waived.</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>If submitting more than 3 items or this is a subsequent submission: prepare $180 (small entity) or $360 (large entity) per 10 items.</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Determine your entity status (micro, small, or large) if paying fees.</label></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="submission">
+      <div class="checklist-section">
+        <div class="checklist-section-header"><span>🖥</span> 4. Submission via USPTO Patent Center</div>
+        <div class="checklist-items">
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Log into <a href="https://patentcenter.uspto.gov" target="_blank" rel="noopener">USPTO Patent Center ↗</a>. Guest account allowed for anonymous filing.</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Navigate to the target application and select "Third-Party Preissuance Submission."</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Upload Form PTO/SB/429, the Concise Description document, and all reference PDFs.</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Pay fees (if applicable) and complete submission. Save the confirmation receipt.</label></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="post-filing">
+      <div class="checklist-section">
+        <div class="checklist-section-header"><span>✓</span> 5. After Filing</div>
+        <div class="checklist-items">
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Save the USPTO acknowledgment receipt. Note the filing date as your compliance record.</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Set a reminder to check the file wrapper in 2–4 weeks to confirm the submission was entered, not returned.</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Monitor subsequent Office Actions to see if the Examiner cited your references. You will not be directly notified.</label></div>
+        </div>
+      </div>
+      <div class="pro-tip">
+        <strong>Pro Se Tip:</strong> Double-check your "Concise Description." If it sounds like you are arguing with the examiner ("This proves the claim is obvious"), delete it. State the facts only ("Reference A shows a wheel on page 4").
+      </div>
+    </section>
+  </main>

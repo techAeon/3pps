@@ -1,0 +1,108 @@
+---
+layout: base.njk
+title: The Patent System's Crowdsourcing Window
+description: A Third-Party Preissuance Submission (3PPS) allows you to submit prior art to a patent examiner before a patent is granted. Learn how under 35 U.S.C. § 122(e).
+navActive: "home"
+permalink: /index.html
+---
+
+<main class="home-main">
+
+  <section class="home-hero">
+    <span class="eyebrow">35 U.S.C. § 122(e) · 37 CFR 1.290 · America Invents Act</span>
+    <h1>The Patent System's<br><em>Crowdsourcing Window</em></h1>
+    <p class="lead">A Third-Party Preissuance Submission (3PPS) is a statutory mechanism that allows any member of the public to place prior art directly in front of a USPTO examiner — before a patent is granted. The window is narrow. The rules are strict. This site explains both.</p>
+    <div class="btn-group">
+      <a href="/101" class="btn-primary">Read the Guide →</a>
+      <a href="/calculator" class="btn-outline">Check Your Deadline</a>
+    </div>
+  </section>
+
+  <div class="reg-box">
+    <div class="reg-label">Governing Regulation</div>
+    <div class="reg-citation">37 CFR 1.290</div>
+    <p>"The submission must be made in writing, and must identify the application to which it is directed, and must be filed before the date a notice of allowance under § 1.311 is mailed."</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-item">
+      <span class="stat-num free">Free</span>
+      <span class="stat-label">First-time filers<br>up to 3 items</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">$180</span>
+      <span class="stat-label">Per 10 items<br>thereafter</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num brittle">Brittle</span>
+      <span class="stat-label">Filing window —<br>closes on NOA</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">Silent</span>
+      <span class="stat-label">Your role ends<br>after filing</span>
+    </div>
+  </div>
+
+  <div class="home-grid">
+    <a href="/101" class="home-card">
+      <span class="card-tag">Start here</span>
+      <h3>3PPS 101: The Workflow</h3>
+      <p>Understand the 4-step process, required documents, and what happens after you file. A layman's guide to 35 U.S.C. § 122(e) without dense legalese.</p>
+    </a>
+    <a href="/calculator" class="home-card">
+      <span class="card-tag">Time-sensitive</span>
+      <h3>Statutory Deadline Calculator</h3>
+      <p>The filing window is "brittle" — it can close with no warning. Enter a publication date and first office action date to check your eligibility window.</p>
+    </a>
+    <a href="/drafting" class="home-card">
+      <span class="card-tag">Most common failure point</span>
+      <h3>Drafting Guide & Lab</h3>
+      <p>The USPTO rejects submissions containing "legal arguments." Learn the critical difference between factual descriptions and argumentative language, with compliant examples.</p>
+    </a>
+    <a href="/strategy" class="home-card">
+      <span class="card-tag">Read before you file</span>
+      <h3>Strategic Risks & Tradeoffs</h3>
+      <p>Filing a 3PPS can actually strengthen the patent you're trying to challenge. Understand the double-edged sword and when holding art for an IPR makes more sense.</p>
+    </a>
+    <a href="/checklist" class="home-card">
+      <span class="card-tag">Step-by-step</span>
+      <h3>Interactive Filing Checklist</h3>
+      <p>A structured pre-flight checklist covering identification, document preparation, fees, and EFS-Web submission. Don't file without checking this first.</p>
+    </a>
+    <a href="/international" class="home-card">
+      <span class="card-tag">Comparative</span>
+      <h3>US vs. EPO vs. PCT</h3>
+      <p>The US 3PPS system is arguably the most restrictive in the world. See how it compares to Third-Party Observations at the EPO and WIPO in timing, cost, and content rules.</p>
+    </a>
+  </div>
+
+  <div class="lead-magnet">
+    <div>
+      <h3>Get the Free 3PPS Compliance Checklist</h3>
+      <p>A one-page PDF covering every required element, common rejection reasons, and the fee exemption rules. No spam, unsubscribe anytime.</p>
+    </div>
+    <form class="lead-magnet-form" onsubmit="handleSignup(event)">
+      <input type="email" placeholder="your@email.com" required id="emailInput">
+      <button type="submit">Get the PDF</button>
+    </form>
+  </div>
+
+  <div style="margin: 0 3rem 2rem; max-width: 680px;">
+    <div class="callout note">
+      <span class="callout-label">Critical Distinction</span>
+      <p>A 3PPS is <strong>not a pre-grant opposition</strong>. You cannot argue with the Examiner. You cannot participate in the proceedings. You submit documents, provide a factual description, pay the fee, and walk away. What the Examiner does with your submission is entirely at their discretion.</p>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  function handleSignup(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = '✓ Check your inbox';
+    btn.style.background = '#1a4a2a';
+    e.target.querySelector('input').disabled = true;
+    btn.disabled = true;
+  }
+</script>

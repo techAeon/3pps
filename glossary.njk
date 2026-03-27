@@ -1,0 +1,90 @@
+---
+layout: base.njk
+title: Patent Law Glossary
+description: Key terms for understanding the Third-Party Preissuance Submission process, defined in plain English.
+navActive: "glossary"
+seoTitle: "Patent Law Glossary: Prior Art, NOA, 3PPS, IPR Explained in Plain English"
+pageRelated: "<ul class=\"sidebar-nav\"><li><a href=\"/101\">3PPS 101 Guide</a></li><li><a href=\"/faq\">FAQ</a></li><li><a href=\"https://mpep.uspto.gov\" target=\"_blank\" rel=\"noopener\">MPEP ↗</a></li></ul>"
+permalink: /glossary/index.html
+extraCss: |
+  .glossary-filter { margin-bottom: 1.5rem; }
+  .glossary-filter input { width: 100%; max-width: 400px; border: 1px solid var(--rule); background: var(--bg); padding: 0.6rem 0.875rem; font-family: 'IBM Plex Sans', sans-serif; font-size: 0.9rem; color: var(--ink); border-radius: 2px; }
+  .glossary-filter input:focus { outline: 2px solid var(--accent-mid); outline-offset: 1px; }
+  .term-entry { padding: 1.25rem 0; border-bottom: 1px solid var(--rule-light); }
+  .term-entry:last-child { border-bottom: none; }
+  .term-entry dt { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; }
+  .term-citation { font-family: 'IBM Plex Mono', monospace; font-size: 0.725rem; color: var(--accent-mid); font-weight: 400; background: var(--accent-light); padding: 0.1em 0.4em; border-radius: 2px; }
+  .term-entry dd { color: var(--ink-muted); font-size: 0.9rem; margin-left: 0; line-height: 1.65; }
+  .term-entry dd p { margin-bottom: 0.5rem; }
+  .term-entry dd p:last-child { margin-bottom: 0; }
+  .hidden { display: none; }
+---
+
+<main class="main-content">
+    <div class="page-header">
+      <div class="breadcrumb">3PPS.info / glossary</div>
+      <h1>Patent Law Glossary</h1>
+      <p class="page-subtitle">Key terms for understanding the 3PPS process, defined in plain English for inventors, founders, and non-practitioners.</p>
+    </div>
+
+    <div class="glossary-filter">
+      <input type="text" id="glossarySearch" placeholder="Filter terms…" oninput="filterGlossary(this.value)">
+    </div>
+
+    <dl id="glossaryList">
+      <div class="term-entry" id="term-aia">
+        <dt>America Invents Act (AIA) <span class="term-citation">Pub. L. 112-29, 2011</span></dt>
+        <dd>A major US federal statute signed in September 2011 that overhauled the patent system. Key changes include switching from "first-to-invent" to "first-to-file," establishing the 3PPS mechanism under 35 U.S.C. § 122(e), and creating IPR and PGR proceedings before the PTAB.</dd>
+      </div>
+      <div class="term-entry" id="term-claim">
+        <dt>Claim <span class="term-citation">35 U.S.C. § 112</span></dt>
+        <dd>The numbered sentences at the end of a patent that legally define the scope of the inventor's exclusive rights. Claims are the most legally significant part of a patent. A 3PPS aims to show the Examiner that specific claim elements are disclosed in prior art — but only the Examiner determines patentability.</dd>
+      </div>
+      <div class="term-entry" id="term-concise-desc">
+        <dt>Concise Description of Relevance <span class="term-citation">37 CFR 1.290(d)(3)</span></dt>
+        <dd>A required component of every 3PPS filing. For each document submitted, the filer must provide a factual description explaining where in the document the relevant information appears and what it shows. No legal arguments, no claims of invalidity, no obviousness analysis. See the <a href="/drafting">Drafting Guide</a> for detailed guidance.</dd>
+      </div>
+      <div class="term-entry" id="term-estoppel">
+        <dt>Estoppel <span class="term-citation">35 U.S.C. § 315(e)</span></dt>
+        <dd>
+          <p>A legal doctrine preventing a party from arguing a position that contradicts a prior position. In the 3PPS context:</p>
+          <p><strong>Statutory estoppel</strong> applies to IPR petitioners who lose at the PTAB. A 3PPS filer is <em>not</em> subject to this.</p>
+          <p><strong>Practical estoppel</strong> (informal) refers to the real-world difficulty of using in a future IPR the same reference an Examiner already considered. Not a legal bar, but a significant strategic obstacle.</p>
+        </dd>
+      </div>
+      <div class="term-entry" id="term-file-wrapper">
+        <dt>File Wrapper (Image File Wrapper)</dt>
+        <dd>The complete official record of all documents in a patent application — all USPTO communications, Office Actions, responses, and third-party submissions. After a 3PPS is accepted, it is entered into the file wrapper and becomes part of the official record. Publicly accessible through USPTO Patent Center.</dd>
+      </div>
+      <div class="term-entry" id="term-ipr">
+        <dt>Inter Partes Review (IPR) <span class="term-citation">35 U.S.C. §§ 311–319</span></dt>
+        <dd>A post-grant adversarial proceeding before the PTAB allowing third parties to challenge the validity of an issued patent. Only available 9 months after patent grant. Unlike a 3PPS, IPR involves full adversarial proceedings. Significantly more expensive ($30,000–$100,000+) but gives the petitioner much more control. Requires disclosure of the real party in interest — no anonymous filing.</dd>
+      </div>
+      <div class="term-entry" id="term-noa">
+        <dt>Notice of Allowance (NOA) <span class="term-citation">37 CFR 1.311</span></dt>
+        <dd>A written notification from the USPTO that they intend to issue a patent. Once an NOA is issued, the 3PPS window closes <em>immediately</em>. This is the "hard stop" in the 3PPS timeline. It can issue at any point with no advance notice — which is why the window is called "brittle." Monitor the file wrapper regularly if timing is a concern.</dd>
+      </div>
+      <div class="term-entry" id="term-office-action">
+        <dt>Office Action</dt>
+        <dd>A document written by a USPTO examiner that accepts or rejects claims in a pending application. An "Office Action on the Merits" addresses claim substance. The date of the "First Office Action on the Merits" is significant for 3PPS timing: if it occurs more than 6 months after publication, it can extend the filing window to that date.</dd>
+      </div>
+      <div class="term-entry" id="term-prior-art">
+        <dt>Prior Art <span class="term-citation">35 U.S.C. §§ 102–103</span></dt>
+        <dd>Any public knowledge, document, device, or activity that existed before the effective filing date of a patent application and is relevant to whether the claimed invention is new (§ 102) or non-obvious (§ 103). In the 3PPS context, this typically means existing patents, patent applications, or printed publications that disclose the claimed technology.</dd>
+      </div>
+      <div class="term-entry" id="term-pro-se">
+        <dt>Pro Se Inventor</dt>
+        <dd>An inventor who files and prosecutes their own patent application without a registered patent attorney or agent. The 3PPS mechanism is designed to be accessible to pro se participants — the rules are procedural, not requiring legal expertise — though understanding the "no arguments" requirement is critical.</dd>
+      </div>
+      <div class="term-entry" id="term-pub-date">
+        <dt>Publication Date <span class="term-citation">35 U.S.C. § 122(b)</span></dt>
+        <dd>The date the USPTO makes a patent application available to the public. Most applications publish 18 months after the earliest filing date. The publication date is the starting point for the 3PPS filing window — the base deadline is 6 months later. Appears on the face of the published application and is searchable through Patent Center and Google Patents.</dd>
+      </div>
+      <div class="term-entry" id="term-3pps">
+        <dt>Third-Party Preissuance Submission (3PPS) <span class="term-citation">35 U.S.C. § 122(e) · 37 CFR 1.290</span></dt>
+        <dd>The statutory mechanism established by the AIA that allows any member of the public to submit prior art to a USPTO Examiner during examination of a pending patent application. Not an opposition proceeding — the filer has no right to participate after submission. Must comply with strict requirements including timing, fee payment, and factual (non-argumentative) descriptions.</dd>
+      </div>
+    </dl>
+
+    <p style="margin-top: 2rem; font-size: 0.8rem; color: var(--ink-faint);">Missing a term? The <a href="https://www.uspto.gov/learning-and-resources/glossary" target="_blank" rel="noopener">USPTO official glossary ↗</a> and <a href="https://mpep.uspto.gov" target="_blank" rel="noopener">MPEP ↗</a> are authoritative references.</p>
+  </main>

@@ -1,0 +1,14 @@
+{
+  "name": "3pps-info",
+  "version": "2.0.0",
+  "description": "3PPS.info — Educational resource for USPTO Third-Party Preissuance Submissions",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "keywords": ["patent", "3pps", "uspto", "prior-art", "37-cfr-1-290"],
+  "license": "ISC"
+}
