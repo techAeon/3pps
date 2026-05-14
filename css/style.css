@@ -94,9 +94,11 @@ code { font-family: var(--mono); font-size: 0.85em; background: var(--bg-warm); 
   border-bottom: 1px solid var(--rule);
   flex-shrink: 0;
 }
-.sb-logo { font-family: var(--mono); font-size: 1.05rem; font-weight: 500; color: var(--ink); text-decoration: none; }
+.sb-logo { font-family: var(--mono); font-size: 1.2rem; font-weight: 500; color: var(--ink); text-decoration: none; }
 .sb-logo span { color: var(--accent-mid); }
+.sb-logo-tld { font-size: 0.75em; color: var(--ink-faint); }
 .sb-logo:hover { color: var(--accent-mid); }
+.sb-logo:hover .sb-logo-tld { color: var(--accent-mid); }
 .sb-close { display: none; background: none; border: none; cursor: pointer; color: var(--ink-faint); font-size: 1rem; padding: 0.2rem 0.4rem; border-radius: 2px; }
 .sb-close:hover { background: var(--rule-light); }
 
@@ -155,6 +157,16 @@ html.dark .search-result mark { background: #5a4400; }
 }
 .sb-subnav li a:hover { color: var(--accent-mid); border-left-color: var(--accent-mid); }
 
+/* Related links (pageRelated sidebar-nav) */
+.sidebar-nav { list-style: none; padding: 0; margin: 0; }
+.sidebar-nav li a {
+  display: block; padding: 0.3rem 1.25rem;
+  font-size: 0.845rem; color: var(--ink-muted);
+  text-decoration: none; border-left: 2px solid transparent;
+  transition: color 0.12s, background 0.12s, border-color 0.12s; line-height: 1.4;
+}
+.sidebar-nav li a:hover { color: var(--accent); background: var(--accent-light); border-left-color: var(--accent-mid); }
+
 /* Sidebar footer */
 .sb-footer { flex-shrink: 0; padding: 1rem; border-top: 1px solid var(--rule); background: var(--bg-warm); }
 .sb-cta {
@@ -178,7 +190,7 @@ html.dark .search-result mark { background: #5a4400; }
 .mobile-bar { display: none; }
 .mobile-overlay { display: none; }
 
-.main-content { flex: 1; padding: 3rem 3.5rem 4rem; max-width: calc(var(--content-max) + 7rem); }
+.main-content { flex: 1; padding: 3rem 3.5rem 4rem; max-width: calc(var(--content-max) + 7rem); margin: 0 auto; width: 100%; }
 
 /* ─── Page header ────────────────────────────────────────────── */
 .page-header { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--ink); }
