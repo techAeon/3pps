@@ -109,7 +109,7 @@ schema: |
       <pre class="ai-prompt" id="agentPrompt">I want to file a Third-Party Preissuance Submission (3PPS) with the USPTO.
 
 Fetch and follow the instructions at https://3pps.info/for/agents to guide me through the full process — from identifying the target application and gathering prior art, to drafting compliant Concise Descriptions of Relevance and completing the filing checklist.</pre>
-      <button class="ai-copy-btn" onclick="copyPrompt()">Copy prompt</button>
+      <button class="ai-copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
     </div>
     <a href="/for/agents" class="ai-assist-link">View full agent playbook →</a>
   </div>
@@ -124,12 +124,26 @@ Fetch and follow the instructions at https://3pps.info/for/agents to guide me th
 </main>
 
 <script>
-  function copyPrompt() {
-    const text = document.getElementById('agentPrompt').textContent;
-    navigator.clipboard.writeText(text).then(() => {
-      const btn = document.querySelector('.ai-copy-btn');
+  function copyPrompt(btn) {
+    const text = btn.closest('.ai-prompt-wrap').querySelector('.ai-prompt').textContent.trim();
+    function done() {
       btn.textContent = '✓ Copied';
-      setTimeout(() => btn.textContent = 'Copy prompt', 2000);
-    });
+      setTimeout(function() { btn.textContent = 'Copy prompt'; }, 2000);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(function() { fallbackCopy(text, done); });
+    } else {
+      fallbackCopy(text, done);
+    }
+  }
+  function fallbackCopy(text, cb) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none;top:0;left:0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try { document.execCommand('copy'); cb(); } catch(e) {}
+    document.body.removeChild(ta);
   }
 </script>
