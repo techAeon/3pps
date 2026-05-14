@@ -1,0 +1,8 @@
+{
+  "plugins": [
+    {
+      "name": "marketing-skills",
+      "source": ".claude/plugins/coreyhaines31/marketingskills"
+    }
+  ]
+}

@@ -94,9 +94,11 @@ code { font-family: var(--mono); font-size: 0.85em; background: var(--bg-warm); 
   border-bottom: 1px solid var(--rule);
   flex-shrink: 0;
 }
-.sb-logo { font-family: var(--mono); font-size: 1.05rem; font-weight: 500; color: var(--ink); text-decoration: none; }
+.sb-logo { font-family: var(--mono); font-size: 1.2rem; font-weight: 500; color: var(--ink); text-decoration: none; }
 .sb-logo span { color: var(--accent-mid); }
+.sb-logo-tld { font-size: 0.75em; color: var(--ink-faint); }
 .sb-logo:hover { color: var(--accent-mid); }
+.sb-logo:hover .sb-logo-tld { color: var(--accent-mid); }
 .sb-close { display: none; background: none; border: none; cursor: pointer; color: var(--ink-faint); font-size: 1rem; padding: 0.2rem 0.4rem; border-radius: 2px; }
 .sb-close:hover { background: var(--rule-light); }
 
@@ -155,6 +157,16 @@ html.dark .search-result mark { background: #5a4400; }
 }
 .sb-subnav li a:hover { color: var(--accent-mid); border-left-color: var(--accent-mid); }
 
+/* Related links (pageRelated sidebar-nav) */
+.sidebar-nav { list-style: none; padding: 0; margin: 0; }
+.sidebar-nav li a {
+  display: block; padding: 0.3rem 1.25rem;
+  font-size: 0.845rem; color: var(--ink-muted);
+  text-decoration: none; border-left: 2px solid transparent;
+  transition: color 0.12s, background 0.12s, border-color 0.12s; line-height: 1.4;
+}
+.sidebar-nav li a:hover { color: var(--accent); background: var(--accent-light); border-left-color: var(--accent-mid); }
+
 /* Sidebar footer */
 .sb-footer { flex-shrink: 0; padding: 1rem; border-top: 1px solid var(--rule); background: var(--bg-warm); }
 .sb-cta {
@@ -178,12 +190,14 @@ html.dark .search-result mark { background: #5a4400; }
 .mobile-bar { display: none; }
 .mobile-overlay { display: none; }
 
-.main-content { flex: 1; padding: 3rem 3.5rem 4rem; max-width: calc(var(--content-max) + 7rem); }
+.main-content { flex: 1; padding: 3rem 3.5rem 4rem; max-width: calc(var(--content-max) + 7rem); margin: 0 auto; width: 100%; }
 
 /* ─── Page header ────────────────────────────────────────────── */
 .page-header { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--ink); }
 .page-header .breadcrumb { font-size: 0.75rem; color: var(--ink-faint); font-family: var(--mono); margin-bottom: 0.75rem; }
 .page-header .page-subtitle { font-size: 1rem; color: var(--ink-muted); margin-top: 0.5rem; margin-bottom: 0; }
+.page-meta { font-size: 0.775rem; color: var(--ink-faint); font-family: var(--mono); margin-top: 0.75rem; margin-bottom: 2rem; }
+.page-meta a { color: var(--ink-muted); }
 
 /* ─── Callouts ───────────────────────────────────────────────── */
 .callout { border-left: 3px solid var(--rule); padding: 0.875rem 1.25rem; margin: 1.5rem 0; background: var(--bg-warm); border-radius: 0 2px 2px 0; }
@@ -198,6 +212,9 @@ html.dark .search-result mark { background: #5a4400; }
 .callout p { margin: 0; font-size: 0.9rem; }
 
 /* ─── Tables ─────────────────────────────────────────────────── */
+.faq-list { margin: 1.5rem 0; }
+.faq-list dt { font-weight: 600; color: var(--ink); margin-top: 1.25rem; margin-bottom: 0.35rem; font-size: 0.975rem; }
+.faq-list dd { margin-left: 0; color: var(--ink-muted); font-size: 0.9rem; line-height: 1.65; }
 .ref-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.875rem; }
 .ref-table th { text-align: left; padding: 0.55rem 0.875rem; background: var(--ink); color: #fff; font-weight: 500; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; }
 html.dark .ref-table th { background: #2e2c26; color: var(--ink-muted); }

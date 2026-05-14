@@ -1,0 +1,50 @@
+# 3PPS.info
+
+> Educational resource for USPTO Third-Party Preissuance Submissions under 35 U.S.C. § 122(e)
+
+## What This Site Covers
+
+3PPS.info explains the Third-Party Preissuance Submission (3PPS) — the statutory mechanism that allows any member of the public to submit prior art to a USPTO patent examiner before a patent is granted. The site is written for non-practitioners: engineers, founders, product managers, and anyone facing a patent application that may affect their work.
+
+Key topics covered:
+- What a 3PPS is and how it differs from a pre-grant opposition (it is not an opposition)
+- The statutory filing window and deadline calculation (under 35 U.S.C. § 122(e) and 37 CFR 1.290)
+- How to write compliant Concise Descriptions of Relevance (factual only — no legal arguments)
+- When filing a 3PPS can backfire versus when to hold prior art for an Inter Partes Review (IPR)
+- How the US 3PPS compares to Third-Party Observations at the EPO and under the PCT
+- Filing costs: free for first-time filers submitting 3 or fewer documents; $180 for subsequent filings
+
+## Key Facts
+
+- Anyone can file a 3PPS — no attorney required
+- Filing can be done anonymously under 37 CFR 1.290
+- The filing window closes when a Notice of Allowance (NOA) issues — with no warning
+- Permitted prior art types: patents (US and foreign), published patent applications, printed publications
+- Not permitted: declarations, affidavits, legal arguments, obviousness conclusions
+- After filing, the submitter's role ends completely — no participation in proceedings
+
+## Pages
+
+- [3PPS 101: The Workflow](https://3pps.info/101/) — 4-step process guide
+- [Deadline Calculator](https://3pps.info/calculator/) — statutory window calculator
+- [Drafting Guide](https://3pps.info/drafting/) — how to write compliant descriptions
+- [Strategic Risks](https://3pps.info/strategy/) — when 3PPS backfires vs. holding art for IPR
+- [Filing Checklist](https://3pps.info/checklist/) — interactive pre-flight checklist
+- [International Comparison](https://3pps.info/international/) — US vs. EPO vs. PCT
+- [FAQ](https://3pps.info/faq/) — common questions answered
+- [Glossary](https://3pps.info/glossary/) — key patent law terms in plain English
+- [About](https://3pps.info/about/) — about this site and its author
+
+## Author
+
+Built by Kieran O'Leary. See https://kieranjoleary.com for more.
+
+## Governing Law
+
+- 35 U.S.C. § 122(e) — statutory authority
+- 37 CFR 1.290 — implementing regulation
+- America Invents Act (AIA), signed 2011
+
+## Disclaimer
+
+This site is educational only and is not affiliated with the USPTO. Nothing here constitutes legal advice.
