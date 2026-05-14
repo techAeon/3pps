@@ -101,15 +101,17 @@ schema: |
     </a>
   </div>
 
-  <div class="lead-magnet">
-    <div>
-      <h3>Get the Free 3PPS Compliance Checklist</h3>
-      <p>A one-page PDF covering every required element, common rejection reasons, and the fee exemption rules. No spam, unsubscribe anytime.</p>
+  <div class="ai-assist-block">
+    <div class="ai-assist-label">Get help with AI</div>
+    <h3>Let an AI agent walk you through your submission</h3>
+    <p>Paste the prompt below into <a href="https://claude.ai/code" target="_blank" rel="noopener">Claude Code</a> or any AI coding agent. It will fetch a structured playbook from this site and guide you step-by-step: identify the application, gather prior art, draft compliant Concise Descriptions, and complete the filing checklist.</p>
+    <div class="ai-prompt-wrap">
+      <pre class="ai-prompt" id="agentPrompt">I want to file a Third-Party Preissuance Submission (3PPS) with the USPTO.
+
+Fetch and follow the instructions at https://3pps.info/for/agents to guide me through the full process — from identifying the target application and gathering prior art, to drafting compliant Concise Descriptions of Relevance and completing the filing checklist.</pre>
+      <button class="ai-copy-btn" onclick="copyPrompt()">Copy prompt</button>
     </div>
-    <form class="lead-magnet-form" onsubmit="handleSignup(event)">
-      <input type="email" placeholder="your@email.com" required id="emailInput">
-      <button type="submit">Get the PDF</button>
-    </form>
+    <a href="/for/agents" class="ai-assist-link">View full agent playbook →</a>
   </div>
 
   <div style="margin: 0 3rem 2rem; max-width: 680px;">
@@ -122,12 +124,12 @@ schema: |
 </main>
 
 <script>
-  function handleSignup(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button');
-    btn.textContent = '✓ Check your inbox';
-    btn.style.background = '#1a4a2a';
-    e.target.querySelector('input').disabled = true;
-    btn.disabled = true;
+  function copyPrompt() {
+    const text = document.getElementById('agentPrompt').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.ai-copy-btn');
+      btn.textContent = '✓ Copied';
+      setTimeout(() => btn.textContent = 'Copy prompt', 2000);
+    });
   }
 </script>

@@ -1,0 +1,252 @@
+---
+layout: base.njk
+title: "3PPS.info for AI Agents"
+description: A structured playbook for AI coding agents helping a user file a compliant Third-Party Preissuance Submission with the USPTO.
+navActive: ""
+seoTitle: "3PPS Filing Playbook for AI Agents"
+permalink: /for/agents/index.html
+---
+
+<main class="main-content">
+  <div class="page-header">
+    <div class="breadcrumb">3PPS.info / for / agents</div>
+    <h1>3PPS.info for AI Agents</h1>
+    <p class="page-subtitle">This page is for AI coding agents helping a user file a compliant Third-Party Preissuance Submission (3PPS) with the USPTO under 35 U.S.C. § 122(e).</p>
+  </div>
+
+  <div class="callout note">
+    <span class="callout-label">How to use this page</span>
+    <p>Paste the prompt below into Claude Code or any AI agent. The agent will fetch this page and follow the playbook to guide you through the full 3PPS filing process.</p>
+  </div>
+
+  <div class="ai-prompt-wrap" style="margin: 1.5rem 0;">
+    <pre class="ai-prompt" id="agentPrompt">I want to file a Third-Party Preissuance Submission (3PPS) with the USPTO.
+
+Fetch and follow the instructions at https://3pps.info/for/agents to guide me through the full process — from identifying the target application and gathering prior art, to drafting compliant Concise Descriptions of Relevance and completing the filing checklist.</pre>
+    <button class="ai-copy-btn" onclick="copyPrompt()">Copy prompt</button>
+  </div>
+
+  <hr style="border: none; border-top: 1px solid var(--rule); margin: 2rem 0;">
+
+  <section id="what-is">
+    <h2>What is a 3PPS?</h2>
+    <p>A Third-Party Preissuance Submission lets any member of the public place prior art — patents, published patent applications, or printed publications — directly in front of a USPTO Examiner before a patent is granted. It is governed by 35 U.S.C. § 122(e) and 37 CFR 1.290.</p>
+    <p>It is <strong>not a pre-grant opposition</strong>. The filer cannot argue with the Examiner, participate in proceedings, or receive feedback. The filer submits documents, provides a factual description, pays the fee, and walks away.</p>
+  </section>
+
+  <section id="step1">
+    <h2>Step 1: Understand What the User Wants</h2>
+    <p>Ask the user:</p>
+    <ul>
+      <li>Which patent application are they concerned about?</li>
+      <li>Do they have prior art in mind, or do they need guidance on what counts?</li>
+      <li>Is their goal to prevent the patent entirely, or to narrow the claims?</li>
+    </ul>
+    <div class="callout important">
+      <span class="callout-label">Set Expectations Early</span>
+      <p>Explain that the Examiner is not obligated to reject the claims — only to consider the submitted documents. The 3PPS places art on the record; the Examiner decides what to do with it.</p>
+    </div>
+  </section>
+
+  <section id="step2">
+    <h2>Step 2: Identify the Target Application</h2>
+    <p>Collect from the user:</p>
+    <ul>
+      <li>Application publication number (e.g., US 2024/0123456) or application number (e.g., US 17/123,456)</li>
+      <li>Application title and applicant name (for verification)</li>
+    </ul>
+    <h3>Verify the Filing Window</h3>
+    <p>The window closes at the <strong>earlier</strong> of:</p>
+    <ol>
+      <li>A Notice of Allowance (NOA) being mailed, OR</li>
+      <li>The <strong>later</strong> of: 6 months after first publication, OR the date of the first Office Action on the merits</li>
+    </ol>
+    <p>Check the application's file wrapper in USPTO Patent Center (<a href="https://patentcenter.uspto.gov" target="_blank" rel="noopener">patentcenter.uspto.gov ↗</a>) to confirm no NOA has issued. The window can close without warning.</p>
+  </section>
+
+  <section id="step3">
+    <h2>Step 3: Gather the Patent Claims</h2>
+    <p>Ask the user to provide the <strong>independent claims</strong> of the target application — claims that do not depend on any other claim. These define the scope of what the patent will cover and are the basis for the prior art mapping.</p>
+    <p>Find them in the published application on <a href="https://patents.google.com" target="_blank" rel="noopener">Google Patents ↗</a> or via Patent Center.</p>
+  </section>
+
+  <section id="step4">
+    <h2>Step 4: Gather Prior Art References</h2>
+    <p>Ask the user for each reference they want to submit. Explain the permitted types:</p>
+    <table class="ref-table">
+      <thead><tr><th>Permitted</th><th>Not Permitted</th></tr></thead>
+      <tbody>
+        <tr><td>US patents (cite by number only — no PDF needed)</td><td>Declarations or affidavits</td></tr>
+        <tr><td>Foreign patents and published patent applications (PDF required)</td><td>Inventor testimony</td></tr>
+        <tr><td>Academic papers, books, datasheets, product manuals, conference proceedings (PDF required)</td><td>Non-documentary evidence</td></tr>
+        <tr><td>Non-patent literature published before the application's priority date</td><td>Anything from the Applicant</td></tr>
+      </tbody>
+    </table>
+    <p>For each reference, collect: full citation and the claim elements it appears to disclose.</p>
+  </section>
+
+  <section id="step5">
+    <h2>Step 5: Map Claims to References</h2>
+    <p>For each reference, build a two-column element mapping before drafting descriptions. This keeps descriptions factual and organized.</p>
+    <table class="ref-table">
+      <thead><tr><th>Claim Element</th><th>Location in Reference</th></tr></thead>
+      <tbody>
+        <tr><td>[claim term A]</td><td>Figure X, item Y; col. Z, lines A–B</td></tr>
+        <tr><td>[claim term B]</td><td>Page X, paragraph Y</td></tr>
+        <tr><td>[claim term C]</td><td>Abstract, line Z</td></tr>
+      </tbody>
+    </table>
+    <p>Use specific locations: figure number, item number, column, line numbers (patents), paragraph numbers (published applications), page numbers (non-patent literature).</p>
+  </section>
+
+  <section id="step6">
+    <h2>Step 6: Draft Concise Descriptions of Relevance</h2>
+    <p>For each reference, draft a factual Concise Description. This is the most common failure point — <strong>23% of 3PPS submissions are rejected</strong> because descriptions contain legal arguments.</p>
+
+    <h3>Rules</h3>
+    <table class="ref-table">
+      <thead><tr><th>Allowed (factual)</th><th>Prohibited (causes rejection)</th></tr></thead>
+      <tbody>
+        <tr><td>Factual statements about what the document discloses</td><td>Legal conclusions: "anticipates," "renders obvious," "not novel," "invalid"</td></tr>
+        <tr><td>Specific citations (page, column, paragraph, line, figure, item)</td><td>Patentability arguments: "the claim is anticipated because…"</td></tr>
+        <tr><td>Direct quotations from the reference</td><td>Obviousness analysis: "one skilled in the art would combine…"</td></tr>
+        <tr><td>Stating what the reference discloses, factually</td><td>Requests to reject specific claims; statutory citations (§ 102, § 103)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Template</h3>
+    <div style="background: var(--bg-warm); border: 1px solid var(--rule); border-radius: 2px; padding: 1.25rem; margin: 1rem 0;">
+      <p style="font-family: var(--mono); font-size: 0.82rem; color: var(--ink); line-height: 1.8; margin:0;">[Reference Name] ([Publication Number], [Date]) discloses [brief factual description]. [Element A] is described at [specific location]. [Element B] is disclosed at [specific location]. [Optional: The document further states that "[direct quote]" ([location]).]</p>
+    </div>
+
+    <h3>Review Checklist for Each Description</h3>
+    <p>After drafting, re-read each description and flag any sentence that:</p>
+    <ul>
+      <li>Tells the Examiner what to conclude</li>
+      <li>Uses a legal term of art (anticipates, obvious, novel, invalid)</li>
+      <li>Requests a specific claim rejection</li>
+      <li>Cites a statute by section number</li>
+    </ul>
+    <p>Rewrite flagged sentences to describe location and content only. See <a href="/drafting">the Drafting Guide</a> for compliant and non-compliant examples.</p>
+  </section>
+
+  <section id="step7">
+    <h2>Step 7: Determine the Applicable Fee</h2>
+    <table class="ref-table">
+      <thead><tr><th>Scenario</th><th>Fee</th></tr></thead>
+      <tbody>
+        <tr><td>First-time filer for this application, 3 or fewer references</td><td class="highlight">Free ($0)</td></tr>
+        <tr><td>First-time filer for this application, 4–10 references</td><td>$180 (small entity) / $360 (large entity)</td></tr>
+        <tr><td>Subsequent filing by same party for same application</td><td>$180 per 10 items</td></tr>
+      </tbody>
+    </table>
+    <p>Ask the user: Is this your first submission for this application? How many references are you submitting? The exemption is per filer per application — if they have 4 references they can split: 3 free now, 1 later ($180), or all 4 at once ($180).</p>
+  </section>
+
+  <section id="step8">
+    <h2>Step 8: Walk Through the Filing Checklist</h2>
+    <p>Walk the user through all 22 items before they file. Full interactive version: <a href="/checklist">3PPS.info/checklist</a>.</p>
+    <h3>Identification &amp; Timing</h3>
+    <ul>
+      <li>Application/publication number confirmed</li>
+      <li>Application is still pending (not abandoned or issued)</li>
+      <li>No Notice of Allowance has been mailed — confirmed via file wrapper</li>
+      <li>Filing window is verified as open</li>
+      <li>Filer is not the Applicant and has no assignment obligation to Applicant</li>
+    </ul>
+    <h3>Document Preparation</h3>
+    <ul>
+      <li>PDF copies of all non-patent literature gathered</li>
+      <li>US Patents identified by number only (PDFs not required)</li>
+      <li>Foreign language references include English translations</li>
+      <li>Concise Description drafted for every reference</li>
+      <li>Each description is purely factual — no legal arguments or conclusions</li>
+      <li>Specific locations cited for every described element</li>
+      <li>No prohibited terms: "anticipates," "obvious," "invalid," § 102, § 103</li>
+      <li>No requests to reject specific claims</li>
+    </ul>
+    <h3>Fees &amp; Form</h3>
+    <ul>
+      <li>Form PTO/SB/429 (cover sheet) completed with application number and document list</li>
+      <li>Applicable fee determined and payment prepared</li>
+      <li>Statement of compliance completed (confirming timely filing and non-applicant status)</li>
+    </ul>
+    <h3>Submission</h3>
+    <ul>
+      <li>USPTO Patent Center account is active</li>
+      <li>All documents in PDF format</li>
+      <li>Submission filed through Patent Center's "Third-Party Submissions" pathway</li>
+    </ul>
+    <h3>After Filing</h3>
+    <ul>
+      <li>Submission receipt saved</li>
+      <li>File wrapper bookmarked for ongoing monitoring</li>
+      <li>User understands their role ends here — no further participation is possible</li>
+    </ul>
+  </section>
+
+  <section id="step9">
+    <h2>Step 9: Present the Submission Package</h2>
+    <p>Compile a final summary for the user before they file:</p>
+    <ol>
+      <li><strong>Target Application</strong>: number, title, applicant</li>
+      <li><strong>Filing Deadline</strong>: computed deadline with the rule applied</li>
+      <li><strong>Fee</strong>: amount and basis (exemption, small entity, etc.)</li>
+      <li><strong>References</strong>: full citation + drafted Concise Description for each</li>
+      <li><strong>Checklist</strong>: confirm all 22 items cleared</li>
+    </ol>
+    <p>Direct the user to file at <a href="https://patentcenter.uspto.gov" target="_blank" rel="noopener">USPTO Patent Center ↗</a> under "Third-Party Submissions."</p>
+  </section>
+
+  <section id="strategy">
+    <h2>Strategic Considerations to Raise</h2>
+    <div class="callout warning">
+      <span class="callout-label">The Double-Edged Sword</span>
+      <p>If the user has only one very strong reference, warn them: filing it as a 3PPS "burns" it. The Applicant can amend claims around it, and the resulting patent will be presumed valid over the very art submitted — making it harder to challenge later. They may want to hold it for an Inter Partes Review (IPR) instead. See <a href="/strategy">3PPS.info/strategy</a> for full analysis.</p>
+    </div>
+    <table class="ref-table">
+      <thead><tr><th>File a 3PPS when…</th><th>Hold art for IPR when…</th></tr></thead>
+      <tbody>
+        <tr><td>You have 3+ independent, strong references (harder to design around)</td><td>You have a single "silver bullet" invalidity reference</td></tr>
+        <tr><td>You need anonymity</td><td>The patent is a direct competitive threat worth $30k+ to fight</td></tr>
+        <tr><td>You want to act before the patent issues</td><td>The Applicant has clear room to narrow their claims</td></tr>
+        <tr><td>IPR cost is not justified by the business stakes</td><td>You want full adversarial proceedings and cross-examination</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="key-rules">
+    <h2>Key Rules to Enforce</h2>
+    <ul>
+      <li>The filing window can close without warning when a NOA issues — urge the user to file promptly once ready.</li>
+      <li>Anonymous filing is permitted — the user does not need to identify themselves.</li>
+      <li>The user's role ends the moment they file — they cannot argue, respond, or participate further.</li>
+      <li>A 3PPS is not a pre-grant opposition — it is a document submission mechanism only.</li>
+      <li>The Examiner is required to consider entered documents but is not required to explain their reasoning.</li>
+    </ul>
+  </section>
+
+  <section id="resources">
+    <h2>Resources on This Site</h2>
+    <ul>
+      <li><a href="/101">Full process guide (3PPS 101)</a></li>
+      <li><a href="/drafting">How to write compliant Concise Descriptions</a></li>
+      <li><a href="/checklist">Interactive filing checklist (22 items)</a></li>
+      <li><a href="/calculator">Statutory deadline calculator</a></li>
+      <li><a href="/strategy">Strategic risks — 3PPS vs. IPR analysis</a></li>
+      <li><a href="/glossary">Patent law glossary</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<script>
+  function copyPrompt() {
+    const text = document.getElementById('agentPrompt').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.ai-copy-btn');
+      btn.textContent = '✓ Copied';
+      setTimeout(() => btn.textContent = 'Copy prompt', 2000);
+    });
+  }
+</script>

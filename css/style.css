@@ -25,7 +25,7 @@
   --fail-bg:      #faeaea;
   --mono:         'IBM Plex Mono', monospace;
   --sb-width:     260px;
-  --content-max:  760px;
+  --content-max:  840px;
 }
 
 /* ─── Dark mode ──────────────────────────────────────────────── */
@@ -49,6 +49,18 @@ html.dark {
   --fail:         #cc8080;
   --fail-bg:      #280e0e;
 }
+
+/* ─── Dark mode overrides ────────────────────────────────────── */
+/* Elements that use var(--ink) as a background flip to light in dark mode — fix them */
+html.dark .sb-cta { background: var(--accent-mid); color: var(--bg); }
+html.dark .sb-cta:hover { background: var(--accent); color: var(--bg); }
+html.dark .btn-primary { background: var(--accent-mid); color: var(--bg); }
+html.dark .btn-primary:hover { background: var(--accent); color: var(--bg); }
+html.dark .step-num { background: var(--accent-mid); color: var(--bg); }
+html.dark .page-header { border-bottom-color: var(--rule); }
+html.dark .mobile-bar { border-bottom-color: var(--rule); }
+html.dark .sb-dark-btn { color: var(--ink-muted); }
+html.dark .sb-footer-links a { color: var(--ink-muted); }
 
 /* ─── Base typography ────────────────────────────────────────── */
 html { font-size: 16px; scroll-behavior: smooth; }
@@ -353,6 +365,20 @@ html.dark .lead-magnet p { color:var(--ink-faint); }
 .lead-magnet input::placeholder { color:rgba(255,255,255,0.35); }
 .lead-magnet button { background:var(--accent-mid); color:#fff; border:none; padding:0.5rem 1.25rem; font-size:0.875rem; font-weight:500; border-radius:2px; cursor:pointer; }
 
+/* ─── AI assist block ────────────────────────────────────────── */
+.ai-assist-block { margin: 2rem 3.5rem 3rem; max-width: 640px; border: 1px solid var(--accent-mid); border-radius: 4px; padding: 1.75rem; background: var(--accent-light); }
+.ai-assist-label { font-family: var(--mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-mid); margin-bottom: 0.5rem; }
+.ai-assist-block h3 { font-size: 1.05rem; margin: 0 0 0.5rem; color: var(--ink); }
+.ai-assist-block p { font-size: 0.875rem; color: var(--ink-muted); margin-bottom: 1rem; }
+.ai-prompt-wrap { position: relative; margin-bottom: 0.75rem; }
+.ai-prompt { background: var(--bg-card); border: 1px solid var(--rule); border-radius: 3px; padding: 0.875rem 1rem; font-family: var(--mono); font-size: 0.8rem; line-height: 1.65; color: var(--ink); white-space: pre-wrap; margin: 0; }
+.ai-copy-btn { position: absolute; top: 0.5rem; right: 0.5rem; background: var(--ink); color: #fff; border: none; border-radius: 2px; padding: 0.3rem 0.75rem; font-family: 'IBM Plex Sans', sans-serif; font-size: 0.75rem; font-weight: 500; cursor: pointer; transition: background 0.15s; }
+.ai-copy-btn:hover { background: var(--accent); }
+html.dark .ai-copy-btn { background: var(--accent-mid); color: var(--bg); }
+html.dark .ai-copy-btn:hover { background: var(--accent); color: var(--bg); }
+.ai-assist-link { font-size: 0.825rem; color: var(--accent-mid); text-decoration: none; font-weight: 500; }
+.ai-assist-link:hover { color: var(--accent); text-decoration: underline; }
+
 /* ─── Footer ─────────────────────────────────────────────────── */
 .site-footer-wrap { background:var(--bg-warm); border-top:1px solid var(--rule); }
 .site-footer { display:grid; grid-template-columns:1fr 1fr 1fr; gap:2rem; padding:2rem 3.5rem; max-width:calc(var(--content-max) + 7rem); font-size:0.825rem; }
@@ -382,8 +408,12 @@ html.dark .lead-magnet p { color:var(--ink-faint); }
   .main-content { padding:1.5rem 1.25rem 3rem; }
   .home-hero { padding:2rem 1.25rem 1.75rem; }
   .home-hero h1 { font-size:2rem; }
-  .reg-box, .stat-row, .home-grid, .lead-magnet { margin-left:1.25rem; margin-right:1.25rem; }
+  .reg-box, .stat-row, .home-grid, .lead-magnet, .ai-assist-block { margin-left:1.25rem; margin-right:1.25rem; }
   .example-pair { grid-template-columns:1fr; }
   .site-footer { grid-template-columns:1fr; padding:1.5rem 1.25rem; }
   .footer-bottom { padding:0.875rem 1.25rem; flex-direction:column; gap:0.25rem; }
+  /* Table overflow: wrap tables so they scroll horizontally rather than clipping */
+  .ref-table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  /* iOS Safari: push sidebar footer above the bottom browser chrome */
+  .sb-footer { padding-bottom:calc(1rem + env(safe-area-inset-bottom)); }
 }
