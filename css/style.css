@@ -386,4 +386,8 @@ html.dark .lead-magnet p { color:var(--ink-faint); }
   .example-pair { grid-template-columns:1fr; }
   .site-footer { grid-template-columns:1fr; padding:1.5rem 1.25rem; }
   .footer-bottom { padding:0.875rem 1.25rem; flex-direction:column; gap:0.25rem; }
+  /* Table overflow: wrap tables so they scroll horizontally rather than clipping */
+  .ref-table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  /* iOS Safari: push sidebar footer above the bottom browser chrome */
+  .sb-footer { padding-bottom:calc(1rem + env(safe-area-inset-bottom)); }
 }
