@@ -9,3 +9,8 @@
   for = "/sitemap.xml"
   [headers.values]
     Content-Type = "application/xml; charset=utf-8"
+
+[[headers]]
+  for = "/for/agents"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
