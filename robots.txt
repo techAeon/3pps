@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://3pps.info/sitemap.xml

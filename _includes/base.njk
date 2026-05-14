@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ seoTitle if seoTitle else title }} — 3PPS.info</title>
   <meta name="description" content="{{ description }}">
+  <link rel="canonical" href="https://3pps.info{{ page.url }}">
+  <meta property="og:title" content="{{ seoTitle if seoTitle else title }} — 3PPS.info">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://3pps.info{{ page.url }}">
+  <meta property="og:site_name" content="3PPS.info">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ seoTitle if seoTitle else title }} — 3PPS.info">
+  <meta name="twitter:description" content="{{ description }}">
   {% if schema %}<script type="application/ld+json">{{ schema | safe }}</script>{% endif %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,6 +133,7 @@
             </ul>{% endif %}
           </li>
           <li><a href="/faq" class="{% if navActive == 'faq' %}active{% endif %}">FAQ</a></li>
+          <li><a href="/about" class="{% if navActive == 'about' %}active{% endif %}">About</a></li>
           <li><a href="https://www.uspto.gov" target="_blank" rel="noopener" class="sb-external">USPTO Official ↗</a></li>
         </ul>
 
@@ -172,6 +182,7 @@
               <li><a href="/checklist">Filing Checklist</a></li>
               <li><a href="/faq">FAQ</a></li>
               <li><a href="/glossary">Glossary</a></li>
+              <li><a href="/about">About</a></li>
               <li><a href="https://www.uspto.gov" target="_blank" rel="noopener">USPTO Official ↗</a></li>
             </ul>
           </div>
