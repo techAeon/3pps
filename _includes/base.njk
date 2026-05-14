@@ -15,6 +15,7 @@
   <meta name="twitter:title" content="{{ seoTitle if seoTitle else title }} — 3PPS.info">
   <meta name="twitter:description" content="{{ description }}">
   {% if schema %}<script type="application/ld+json">{{ schema | safe }}</script>{% endif %}
+  {% if schema2 %}<script type="application/ld+json">{{ schema2 | safe }}</script>{% endif %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">

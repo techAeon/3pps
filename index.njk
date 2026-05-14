@@ -8,10 +8,25 @@ permalink: /index.html
 schema: |
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "3PPS.info",
-    "url": "https://3pps.info",
-    "description": "Educational resource for USPTO Third-Party Preissuance Submissions under 35 U.S.C. § 122(e) — how to prevent a patent from being granted by submitting prior art."
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "3PPS.info",
+        "url": "https://3pps.info",
+        "description": "Educational resource for USPTO Third-Party Preissuance Submissions under 35 U.S.C. 122(e) \u2014 how to prevent a patent from being granted by submitting prior art."
+      },
+      {
+        "@type": "Organization",
+        "name": "3PPS.info",
+        "url": "https://3pps.info",
+        "description": "Plain-English educational resource for the USPTO Third-Party Preissuance Submission (3PPS) process under 35 U.S.C. 122(e)",
+        "founder": {
+          "@type": "Person",
+          "name": "Kieran O'Leary",
+          "url": "https://kieranjoleary.com"
+        }
+      }
+    ]
   }
 ---
 
